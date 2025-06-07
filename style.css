@@ -1,24 +1,90 @@
 /* ==========================
+   FORCE Comic Sans MS for English - Maximum Priority
+   ========================== */
+
+/* ==========================
+   Font Face Declarations
+   ========================== */
+@font-face {
+  font-family: 'Comic Sans MS';
+  src: url('./fonts/Comic Sans MS.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Comic Sans MS';
+  src: url('./fonts/Comic Sans MS Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Shmulik';
+  src: url('./fonts/Shmulik.woff2') format('woff2'),
+       url('./fonts/Shmulik.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================
    Global & Background
    ========================== */
 html,
 body {
-    margin: 0;
-    padding: 0;
     height: 100%;
-    font-family: Arial, sans-serif;
     color: #e0d77a;
     scroll-behavior: smooth;
     /* smooth anchor scrolling */
     padding-top: 0;
     /* offset for fixed navbar */
     overflow: hidden;
-    font-family: 'Comic Sans MS', cursive;
     text-transform: uppercase;
+}
 
-    
+/* Apply Comic Sans MS specifically to English (LTR) content */
+html[dir="ltr"],
+html[dir="ltr"] *,
+html[dir="ltr"] body,
+html[dir="ltr"] section,
+html[dir="ltr"] .navbar,
+html[dir="ltr"] .navbar a,
+html[dir="ltr"] .about-text,
+html[dir="ltr"] .about-text h1,
+html[dir="ltr"] .about-text h2,
+html[dir="ltr"] .about-text p,
+html[dir="ltr"] section h2,
+html[dir="ltr"] .services-list,
+html[dir="ltr"] .services-list li,
+html[dir="ltr"] .profile-card,
+html[dir="ltr"] .footer,
+html[dir="ltr"] .lang-btn,
+html[dir="ltr"] .menu-btn {
+    font-family: 'Comic Sans MS', cursive, Arial, sans-serif !important;
+}
 
-
+/* Keep Hebrew font for RTL content */
+html[dir="rtl"],
+html[dir="rtl"] *,
+html[dir="rtl"] body,
+html[dir="rtl"] section,
+html[dir="rtl"] .navbar,
+html[dir="rtl"] .navbar a,
+html[dir="rtl"] .about-text,
+html[dir="rtl"] .about-text h1,
+html[dir="rtl"] .about-text h2,
+html[dir="rtl"] .about-text p,
+html[dir="rtl"] section h2,
+html[dir="rtl"] .services-list,
+html[dir="rtl"] .services-list li,
+html[dir="rtl"] .profile-card,
+html[dir="rtl"] .footer,
+html[dir="rtl"] .lang-btn,
+html[dir="rtl"] .menu-btn {
+    font-family: 'Shmulik', sans-serif !important;
 }
 
 body {
@@ -32,13 +98,6 @@ body {
     position: relative;
   }
 
-@font-face {
-  font-family: 'Shmulik';
-  src: url('/fonts/Shmulik.woff2') format('woff2'),
-       url('/fonts/Shmulik.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
 /* ==========================
    Navbar + Logo + Lang‐Switcher
    ========================== */
@@ -91,7 +150,6 @@ html[dir="rtl"] .navbar {
     /* pack everything toward the left edge */
     justify-content: flex-start;
     font-family: 'Shmulik', sans-serif;
-
 }
 
 /* ensure the logo stays at the far opposite end */
@@ -101,7 +159,7 @@ html[dir="rtl"] .logo {
 }
 
 
-/*/* Slim down or “un-button” the language toggle */
+/*/* Slim down or "un-button" the language toggle */
 .lang-btn {
     font-size: 1.2em;
 
@@ -155,7 +213,6 @@ html[dir="ltr"] .services-list {
 html[dir="rtl"] .services-list {
     text-align: right;
     font-family: 'Shmulik', sans-serif;
-
 }
 
 /* ==========================
@@ -204,7 +261,6 @@ section {
   opacity: 0;
   transition: opacity 0.5s ease;
   pointer-events: none;
-  font-family: 'Comic Sans MS', cursive, ;
   font-size: medium;
   text-transform: uppercase;
   margin: 0;
@@ -238,11 +294,7 @@ section h2 {
     color: #e0d77a;
    /* margin-top: 20px;*/
     text-transform: uppercase;
-    font-family: 'Comic Sans MS', cursive;
   /*  margin: 0 auto;*/
-
-
-    
 }
 
 
@@ -254,6 +306,8 @@ section h2 {
     border-radius: 15px;
     padding-top: 0;
     margin-top:  0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* English (LTR): align About text to the right */
@@ -266,7 +320,6 @@ html[dir="rtl"] .about-text {
     text-align: center;
       font-family: 'Shmulik', sans-serif;
       font-size: 1.8em;
-
 }
 
 
@@ -290,7 +343,6 @@ html[dir="rtl"] .contact-form input,
 html[dir="rtl"] .contact-form textarea {
     text-align: right;
     font-family: 'Shmulik', sans-serif;
-
 }
 
 
@@ -336,6 +388,7 @@ html[dir="rtl"] .contact-form textarea {
   height: auto;
   display: block;
   margin: 1em auto; /* center it with some space */
+  text-align: center; /* ensure centering */
 }
 
 
@@ -381,42 +434,170 @@ html[dir="rtl"] .contact-form textarea {
 
 @media (max-width: 768px) {
     body {
-        padding-top: 30px;
-            font-size: 10px; /* reduce global size */
+        padding-top: 80px; /* Better spacing for mobile navbar */
+        font-size: 14px; /* More readable font size */
+        overflow-y: auto; /* Allow vertical scrolling */
+        margin-left: 0 !important; /* Cancel any body left margin on mobile */
+        margin-right: 0 !important; /* Ensure no right margin either */
+        padding-left: 0 !important; /* Remove any body padding */
+        padding-right: 0 !important; /* Remove any body padding */
+    }
 
+    /* Allow sections to be scrollable on mobile */
+    section {
+        height: auto !important; /* Remove fixed height */
+        min-height: 100vh !important; /* Minimum height but can expand */
+        position: relative !important; /* Change from absolute for better mobile flow */
+        padding: 0 !important; /* Remove all section padding */
+        overflow-y: auto; /* Allow vertical scrolling within section */
+        width: 100% !important;
+        margin: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+
+    /* Specific adjustments for sections with lots of content */
+    .section {
+        height: auto !important;
+        min-height: calc(100vh - 80px) !important; /* Account for navbar */
+        padding: 0 !important; /* Remove all padding */
+        position: relative !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    /* WHO WE ARE SECTION - Compact mobile layout */
+    #whowe.section {
+        height: 100vh !important; /* Force to fit in one screen */
+        min-height: 100vh !important;
+        max-height: 100vh !important;
+        overflow: hidden !important; /* Prevent scrolling within section */
+        padding: 0.8em 0 !important; /* Slightly more padding */
+    }
+
+    #whowe .about-text {
+        padding: 0.8em !important; /* Increased padding */
+        font-size: 1.1em !important; /* Larger font size */
+        width: 95% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        text-align: center !important;
+        height: auto !important;
+    }
+
+    #whowe .about-text h2 {
+        font-size: 1.8em !important; /* Larger heading */
+        margin: 0.5em 0 !important; /* More margins */
+        padding: 0 !important;
+    }
+
+    /* Compact profile container for who we are */
+    #whowe .profile-container {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.8rem !important; /* Increased gap */
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+        height: auto !important;
+    }
+
+    /* Compact profile cards for who we are */
+    #whowe .profile-card {
+        font-size: 0.9em !important; /* Larger text */
+        width: 85% !important;
+        max-width: 320px !important;
+        margin: 0 auto 0.8em auto !important; /* Increased bottom margin */
+        padding: 1em !important; /* Increased padding */
+        height: auto !important;
+    }
+
+    /* Smaller profile images for who we are */
+    #whowe .profile-img {
+        width: 100px !important; /* Larger images */
+        height: 100px !important;
+        margin-bottom: 0.8rem !important; /* Increased margin */
+    }
+
+    /* Hebrew adjustments for who we are section */
+    html[dir="rtl"] #whowe .about-text {
+        font-size: 1.3em !important; /* Larger for Hebrew */
+        padding: 0.8em !important;
+    }
+
+    html[dir="rtl"] #whowe .about-text h2 {
+        font-size: 2em !important; /* Larger Hebrew heading */
+        margin: 0.5em 0 !important;
+    }
+
+    html[dir="rtl"] #whowe .profile-card {
+        font-size: 1em !important; /* Larger for Hebrew readability */
+        text-align: center !important;
+        padding: 1em !important;
+    }
+
+    /* Center the about section content horizontally - MOBILE ONLY */
+    .about-section {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 2em 0 !important; /* Only top/bottom padding */
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
     }
 
     .navbar {
         padding: 0.5em 1em;
-        flex-wrap: wrap;
+        flex-wrap: nowrap; /* Keep items on same line */
+        background: rgba(0, 0, 0, 0.9); /* Better visibility */
+        position: fixed; /* Ensure it stays on top */
     }
 
     .navbar a,
     .lang-btn {
         margin: 0.3em;
         padding: 0.5em 1em;
-        font-size: 1.1em;
-        color : red;
+        font-size: 1em;
+        color: #e0d77a; /* Fixed color */
     }
 
     .menu-btn {
         display: block;
+        margin-left: auto;
+        margin-right: 1em; /* Move it a bit left from the right edge */
+        order: 2; /* Ensure it comes after logo */
     }
 
     .nav-items {
         display: none;
         flex-direction: column;
-        background: rgba(0, 0, 0, 0.9);
+        background: rgba(0, 0, 0, 0.95);
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
         padding: 1em 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        z-index: 1000; /* Ensure it appears above other content */
     }
 
     .nav-items a,
     .nav-items .lang-btn {
         margin: 0.5em 1em;
+        padding: 0.8em;
+        width: auto;
+        text-align: center;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .nav-items a:hover,
+    .nav-items .lang-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
     }
 
     /* When nav has .open, show the menu */
@@ -425,80 +606,496 @@ html[dir="rtl"] .contact-form textarea {
     }
 
     .logo img {
-        height: 70px;
+        height: 60px; /* Smaller logo for mobile */
     }
 
-.main-page-logo {
-       height: 180px;
+    .main-page-logo {
+        height: 150px !important;
+        transform: none !important; /* Remove scaling on mobile */
+        margin: 1em auto !important;
+        display: block !important;
+        width: auto !important;
     }
 
+    /* ABOUT TEXT - Perfect horizontal centering for mobile */
     .about-text {
-        padding: 1.5em;
-          font-size: 1.2em;
+        padding: 1.5em !important;
+        font-size: 1.1em !important;
+        width: 85% !important; /* Fixed width */
+        max-width: 450px !important; /* Maximum width constraint */
+        text-align: center !important;
+        box-sizing: border-box !important;
+        margin: 0 auto !important; /* Perfect horizontal centering */
+        display: block !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+
+    /* Hebrew-specific mobile adjustments - SAME CENTERING */
+    html[dir="rtl"] .about-text {
+        font-size: 1.8em !important; /* Original Hebrew font size */
+        text-align: center !important;
+        padding: 1.5em !important;
+        width: 85% !important; /* SAME width as English */
+        max-width: 450px !important; /* SAME max-width as English */
+        margin: 0 auto !important; /* SAME centering as English */
+        display: block !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+
+    html[dir="rtl"] .navbar {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+
+    html[dir="rtl"] .menu-btn {
+        margin-left: 1em;
+        margin-right: auto;
+        order: 1;
+    }
+
+    html[dir="rtl"] .nav-items {
+        text-align: center;
+    }
+
+    html[dir="rtl"] .nav-items a,
+    html[dir="rtl"] .nav-items .lang-btn {
+        text-align: center;
     }
 
     .about-text h1 {
-        font-size: 0.8em;
+        font-size: 1.8em !important; /* Better proportion */
+        text-align: center !important;
+        margin: 0 auto !important;
     }
-     .profile-card {
-    font-size: 0.8em;
-  }
+
+    /* Hebrew heading adjustments */
+    html[dir="rtl"] .about-text h1 {
+        font-size: 2em !important; /* Slightly larger for Hebrew */
+        text-align: center !important;
+        margin: 0 auto !important;
+    }
+
+    html[dir="rtl"] section h2 {
+        font-size: 2.2em; /* Better proportion for Hebrew titles */
+        text-align: center;
+    }
+
+    /* Profile cards - stack vertically and ensure they're all visible */
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        width: 100%;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    .profile-card {
+        font-size: 0.9em;
+        width: 90%;
+        max-width: 350px;
+        margin: 0 auto 1.5em auto;
+        padding: 1.5em;
+    }
+
+    /* Hebrew profile cards */
+    html[dir="rtl"] .profile-card {
+        text-align: center;
+        font-size: 1em; /* Slightly larger for Hebrew */
+    }
+
+    .profile-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    /* Hebrew services list mobile optimization */
+    html[dir="rtl"] .services-list {
+        text-align: center;
+        font-size: 1.1em;
+    }
+
+    html[dir="rtl"] .services-list li {
+        margin-bottom: 0.8em;
+        padding: 0.3em;
+    }
+
+    .barcode-img {
+        width: 100px !important;
+        height: auto !important;
+        display: block !important;
+        margin: 1em auto !important; /* Perfect centering on mobile */
+        text-align: center !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
 }
 
 @media (max-width: 480px) {
-    .navbar {
-        flex-direction: column;
+    body {
+        padding-top: 90px; /* More space for smaller screens */
+        overflow-y: auto; /* Ensure scrolling is available */
+        margin-left: 0 !important; /* Cancel any body left margin on mobile */
+        margin-right: 0 !important; /* Ensure no right margin either */
+        padding-left: 0 !important; /* Remove any body padding */
+        padding-right: 0 !important; /* Remove any body padding */
     }
 
-    .navbar a,
-    .lang-btn {
-        width: 100%;
+    /* Ensure sections can expand and scroll */
+    section {
+        height: auto !important;
+        min-height: calc(100vh - 90px) !important;
+        padding: 0 !important; /* Remove all section padding */
+        position: relative !important;
+        width: 100% !important;
+        margin: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+
+    .section {
+        height: auto !important;
+        min-height: calc(100vh - 90px) !important;
+        padding: 0 !important; /* Remove all padding */
+        position: relative !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    /* WHO WE ARE SECTION - Extra compact layout for small screens */
+    #whowe.section {
+        height: calc(100vh - 90px) !important; /* Force to fit in one screen minus navbar */
+        min-height: calc(100vh - 90px) !important;
+        max-height: calc(100vh - 90px) !important;
+        overflow: hidden !important; /* Prevent scrolling within section */
+        padding: 0.6em 0 !important; /* Increased padding */
+    }
+
+    #whowe .about-text {
+        padding: 0.6em !important; /* Increased padding */
+        font-size: 1em !important; /* Larger font size */
+        width: 98% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        text-align: center !important;
+        height: auto !important;
+    }
+
+    #whowe .about-text h2 {
+        font-size: 1.5em !important; /* Larger heading for small screens */
+        margin: 0.4em 0 !important; /* Increased margins */
+        padding: 0 !important;
+    }
+
+    /* Extra compact profile container for who we are */
+    #whowe .profile-container {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.6rem !important; /* Increased gap */
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+        height: auto !important;
+    }
+
+    /* Extra compact profile cards for who we are */
+    #whowe .profile-card {
+        font-size: 0.8em !important; /* Larger text */
+        width: 90% !important;
+        max-width: 280px !important;
+        margin: 0 auto 0.6em auto !important; /* Increased bottom margin */
+        padding: 0.8em !important; /* Increased padding */
+        height: auto !important;
+    }
+
+    /* Very small profile images for who we are */
+    #whowe .profile-img {
+        width: 80px !important; /* Larger images */
+        height: 80px !important;
+        margin-bottom: 0.6rem !important; /* Increased margin */
+    }
+
+    /* Hebrew adjustments for who we are section on small screens */
+    html[dir="rtl"] #whowe .about-text {
+        font-size: 1.1em !important; /* Larger Hebrew font */
+        padding: 0.6em !important;
+    }
+
+    html[dir="rtl"] #whowe .about-text h2 {
+        font-size: 1.7em !important; /* Larger Hebrew heading */
+        margin: 0.4em 0 !important;
+    }
+
+    html[dir="rtl"] #whowe .profile-card {
+        font-size: 0.85em !important; /* Larger Hebrew profile text */
+        text-align: center !important;
+        padding: 0.8em !important;
+    }
+
+    /* Center about section on very small screens - MOBILE ONLY */
+    .about-section {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 2em 0 3em 0 !important; /* Only top/bottom padding */
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+
+    .navbar {
+        flex-direction: row; /* Keep horizontal layout */
+        padding: 0.5em;
+    }
+
+    /* Hebrew navbar adjustments for very small screens */
+    html[dir="rtl"] .navbar {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+
+    .menu-btn {
+        font-size: 1.2em;
+        margin-right: 1em; /* Keep consistent spacing on small screens */
+    }
+
+    html[dir="rtl"] .menu-btn {
+        margin-left: 1em;
+        margin-right: auto;
+    }
+
+    .nav-items a,
+    .nav-items .lang-btn {
+        width: 90%;
         text-align: center;
         max-width: 300px;
-    }
-
-    section {
-        padding: 2em 1em;
-    }
-
-    .about-text {
+        margin: 0.5em auto;
         padding: 1em;
     }
 
-    .about-text h1 {
-        font-size: 1.75em;
+    /* ABOUT TEXT - Perfect horizontal centering for very small screens */
+    .about-text {
+        padding: 1.2em !important;
+        font-size: 1.2em !important;
+        width: 88% !important; /* Fixed width for small screens */
+        max-width: 380px !important; /* Maximum width constraint */
+        text-align: center !important;
+        box-sizing: border-box !important;
+        margin: 0 auto !important; /* Perfect horizontal centering */
+        display: block !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
     }
 
-    @font-face {
-  font-family: 'Shmulik';
-  src: url('/fonts/shmulik/shmulik.woff2') format('woff2'),
-       url('/fonts/shmulik/shmulik.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+    /* Hebrew about text for small screens - SAME CENTERING */
+    html[dir="rtl"] .about-text {
+        font-size: 1.5em !important; /* Original Hebrew font size for small screens */
+        padding: 1.2em !important;
+        text-align: center !important;
+        width: 88% !important; /* SAME width as English */
+        max-width: 380px !important; /* SAME max-width as English */
+        margin: 0 auto !important; /* SAME centering as English */
+        display: block !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+
+    .about-text h1 {
+        font-size: 1.5em !important;
+        text-align: center !important;
+        margin: 0 auto !important;
+        padding: 0.5em 0 !important;
+    }
+
+    /* Hebrew headings for small screens */
+    html[dir="rtl"] .about-text h1 {
+        font-size: 1.7em !important; /* Proportional Hebrew heading */
+        text-align: center !important;
+        margin: 0 auto !important;
+        padding: 0.5em 0 !important;
+    }
+
+    html[dir="rtl"] section h2 {
+        font-size: 1.8em; /* Adjusted for small screens */
+        text-align: center;
+    }
+
+    .main-page-logo {
+        height: 120px !important;
+        margin: 1em auto !important;
+        display: block !important;
+        width: auto !important;
+    }
+
+    /* Optimize profile cards for very small screens */
+    .profile-container {
+        padding: 0 0.5em;
+        gap: 1rem;
+        margin: 0 auto;
+    }
+
+    .profile-card {
+        width: 95%;
+        font-size: 0.85em;
+        padding: 1.2em;
+        margin-bottom: 1.2em;
+    }
+
+    /* Hebrew profile cards for small screens */
+    html[dir="rtl"] .profile-card {
+        font-size: 0.95em; /* Slightly larger for Hebrew readability */
+        text-align: center;
+        padding: 1.3em;
+    }
+
+    .profile-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .logo img {
+        height: 50px;
+    }
+
+    /* Hebrew services list for small screens */
+    html[dir="rtl"] .services-list {
+        text-align: center;
+        font-size: 1em;
+        margin: 1.2em 0;
+    }
+
+    html[dir="rtl"] .services-list li {
+        margin-bottom: 1em;
+        padding: 0.4em;
+        line-height: 1.4;
+    }
+
+    .hebrew {
+        font-family: 'Shmulik', sans-serif;
+        direction: rtl;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .section {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+
+    .section.active {
+        display: block;
+        opacity: 1;
+    }
+
+    .barcode-img {
+        width: 80px !important;
+        height: auto !important;
+        display: block !important;
+        margin: 1em auto !important; /* Perfect centering on small mobile */
+        text-align: center !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
 }
 
-.hebrew {
-  font-family: 'Shmulik', sans-serif;
-  direction: rtl;
+/* Styling for TAILY logo in solutions section */
+#solutions .logo {
+    text-align: center;
+    width: 100%;
+    margin: 1em auto;
+    display: block;
 }
 
-/*html[lang="he"] .navbar a {
-    font-size: em; /* or 18px, 20px, etc. */
-/*}*/ 
-
-html {
-  scroll-behavior: smooth;
+#solutions .logo img {
+    display: block;
+    margin: 0 auto;
+    max-width: 200px;
+    height: auto;
+    text-align: center;
 }
 
-.section {
-  display: none;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.section.active {
+.barcode-img {
+  width: 120px;
+  height: auto;
   display: block;
-  opacity: 1;
+  margin: 1em auto; /* center it with some space */
+  text-align: center; /* ensure centering */
 }
 
+/* Mobile-specific centering for TAILY logo */
+@media (max-width: 768px) {
+    #solutions .logo {
+        text-align: center !important;
+        width: 100% !important;
+        margin: 1em auto !important;
+        display: block !important;
+    }
+
+    #solutions .logo img {
+        display: block !important;
+        margin: 0 auto !important;
+        max-width: 150px !important;
+        height: auto !important;
+        text-align: center !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+
+    .barcode-img {
+        width: 100px !important;
+        height: auto !important;
+        display: block !important;
+        margin: 1em auto !important; /* Perfect centering on mobile */
+        text-align: center !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
 }
+
+@media (max-width: 480px) {
+    #solutions .logo {
+        text-align: center !important;
+        width: 100% !important;
+        margin: 1em auto !important;
+        display: block !important;
+    }
+
+    #solutions .logo img {
+        display: block !important;
+        margin: 0 auto !important;
+        max-width: 120px !important;
+        height: auto !important;
+        text-align: center !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+
+    .barcode-img {
+        width: 80px !important;
+        height: auto !important;
+        display: block !important;
+        margin: 1em auto !important; /* Perfect centering on small mobile */
+        text-align: center !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+}
+
